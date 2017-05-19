@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eScan</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="../css/component.css" />
+    <link rel="stylesheet" href="../js/jquery-ui-1.12.1/jquery-ui.css" />
+    <script src="../js/modernizr.custom.js"></script>
+    <script src="../js/jquery-3.2.0.min.js"></script>
+    <script src="../js/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/page.js"></script>
+    <script src="../js/json.js"></script>
+    <script src="../js/dialog.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/select-job.js"></script>
+    <script type="text/javascript">
+        $(document).ready(
+            function () {
+                getSelectedAccount();
+                initClickEvent();
+            });
+
+        function initClickEvent() {
+            $("#add-job").click(function () {
+                openSaveAsDialog('Add');
+            });
+
+            $("#job-save-as").click(function () {
+                openSaveAsDialog('Save As...');
+            });
+
+            $("#job-rename").click(function () {
+                openEditDialog(window.currentAccountTypeId);
+            });
+
+            $("#job-delete").click(function () {
+                nCommonConfirm('Delete', 'Are you sure remove this?', function (r) {
+                    if (r) {
+
+                    }
+                })
+            });
+
+            $("#job-setting").click(function () {
+                var titleName = $(this).parent().prev().children().first().text().trim();
+                location.href = "job-setting.html?title="+titleName;
+            })
+        }
+
+        function getSelectedAccount() {
+            let id = $.getUrlParam(Constants.ACCOUNT_TYPE_ID);
+            let name = 'Job';
+            window.currentAccountTypeId = parseInt(id);
+            switch (parseInt(id)) {
+                case Constants.ACCOUNTS_TYPE.FTP:
+                    var data = '{ "accounts" : [' +
+                        '{ "id":"1" , "account":"FTP A" },' +
+                        '{ "id":"2" , "account":"FTP B" },' +
+                        '{ "id":"3" , "account":"FTP C" },' +
+                        '{ "id":"4" , "account":"FTP D" },' +
+                        '{ "id":"5" , "account":"FTP E" },' +
+                        '{ "id":"6" , "account":"FTP F" },' +
+                        '{ "id":"7" , "account":"FTP G" }]}';
+                    var html = getJobDataToHtml(data);
+                    $("#content").html(html);
+                    break;
+                case Constants.ACCOUNTS_TYPE.MICROSOFT:
+                    var data = '{ "accounts" : [' +
+                        '{ "id":"1" , "account":"MICROSOFT A" },' +
+                        '{ "id":"2" , "account":"MICROSOFT B" },' +
+                        '{ "id":"3" , "account":"MICROSOFT C" },' +
+                        '{ "id":"4" , "account":"MICROSOFT D" },' +
+                        '{ "id":"5" , "account":"MICROSOFT E" },' +
+                        '{ "id":"6" , "account":"MICROSOFT F" },' +
+                        '{ "id":"7" , "account":"MICROSOFT E" }]}';
+                    var html = getJobDataToHtml(data);
+                    $("#content").html(html);
+                    break;
+                case Constants.ACCOUNTS_TYPE.LOCAL_MACHINE:
+                    var data = '{ "accounts" : [' +
+                        '{ "id":"1" , "account":"A" , "group":"NONE" },' +
+                        '{ "id":"2" , "account":"B" , "group":"NONE"},' +
+                        '{ "id":"3" , "account":"C" , "group":"NONE" },' +
+                        '{ "id":"4" , "account":"D" , "group":"NONE" },' +
+                        '{ "id":"5" , "account":"E" , "group":"NONE" },' +
+                        '{ "id":"6" , "account":"F" , "group":"NONE" },' +
+                        '{ "id":"7" , "account":"G" , "group":"NONE" }]}';
+                    var html = getJobDataToHtml(data);
+                    $("#content").html(html);
+                    break;
+
+                case Constants.ACCOUNTS_TYPE.SHAREPOINT:
+                    var data = '{ "accounts" : [' +
+                        '{ "id":"1" , "account":"SHAREPOINT A" },' +
+                        '{ "id":"2" , "account":"SHAREPOINT B" },' +
+                        '{ "id":"3" , "account":"SHAREPOINT C" },' +
+                        '{ "id":"4" , "account":"SHAREPOINT D" },' +
+                        '{ "id":"5" , "account":"SHAREPOINT E" },' +
+                        '{ "id":"6" , "account":"SHAREPOINT F" },' +
+                        '{ "id":"7" , "account":"SHAREPOINT E" }]}';
+                    var html = getJobDataToHtml(data);
+                    $("#content").html(html);
+                    break;
+
+            }
+            $("#title").text(name);
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="title">
+        <div class="title-left-div">
+            <img class="title-back-img" src="../images/arrow_back.png" onclick="javascript:history.go(-1);">
+        </div>
+        <div class="title-center-div">
+            <span id="title">Select Job</span>
+        </div>
+        <div id="add-job" class="title-right-div">
+            <img class="title-right-img" src="../images/add_job.png"></div>
+    </div>
+    </div>
+
+    <div class="container-main">
+        <div class="container">
+            <div class="main">
+                <ul id="content" class="content">
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

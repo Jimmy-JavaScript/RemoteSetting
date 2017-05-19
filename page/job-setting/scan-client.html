@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eScan</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/component.css" />
+    <link rel="stylesheet" href="../../js/jquery-ui-1.12.1/jquery-ui.css" />
+    <script src="../../js/modernizr.custom.js"></script>
+    <script src="../../js/jquery-3.2.0.min.js"></script>
+    <script src="../../js/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/page.js"></script>
+    <script src="../../js/json.js"></script>
+    <script src="../../js/local-machine-account.js"></script>
+    <script type="text/javascript">
+        $(document).ready(
+            function () {
+                $('.usb-input').val('/');
+
+            });
+    </script>
+</head>
+
+<body>
+
+    <div class="title">
+        <div class="title-left-div">
+            <img class="title-back-img" src="../../images/arrow_back.png" onclick="javascript:history.go(-1);">
+        </div>
+        <div class="title-center-div">
+            <span id="title">Client PC/Mobile</span>
+        </div>
+        <div class="title-right-div">
+            <span>Selectable</span>
+        </div>
+    </div>
+
+    <div class="container-main">
+        <div class="main">
+            <ul id="content-one" class="content">
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Client Name
+                    </div>
+                    <div class="input-box-flex-div" style="height:100%;">
+                        <input class="usb-input">
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="check6" type="checkbox" class="input-checkbox" style="float: right">
+                        <label style="float: right" for="check6"></label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

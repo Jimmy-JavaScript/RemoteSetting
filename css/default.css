@@ -1,0 +1,1602 @@
+/* General Demo Style */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+@font-face {
+	font-family: 'fontawesome';
+	src:url('../fonts/fontawesome.eot');
+	src:url('../fonts/fontawesome.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/fontawesome.svg#fontawesome') format('svg'),
+		url('../fonts/fontawesome.woff') format('woff'),
+		url('../fonts/fontawesome.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, html { font-size: 100%; 	padding: 0; margin: 0;height: 100%; }
+
+/* Reset */
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+input{
+	border: 0px;
+	padding:10px;
+	outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+input[type="number"]{
+	-moz-appearance: textfield;
+}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+body {
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+	color:white;
+	font-size: 20px;
+	width: 100%;
+	overflow: hidden;
+}
+
+
+a {
+	color: #f0f0f0;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #000;
+}
+
+.icon-drop:before {
+	content: "\e000";
+}
+
+.icon-arrow-left:before {
+	content: "\f060";
+}
+
+ul li{
+	list-style-type:none;
+}
+
+
+.main .li-left-div{
+	height: 100%;
+	width: 70%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.main .li-center-div{
+	height: 100%;
+	width: 20%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.main .li-right-div{
+	height: 100%;
+	width: 10%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content:flex-end;
+	align-items: center;
+}
+
+.li-right-div div{
+	flex-grow:1;
+}
+
+.main .list-icon{
+	height: 60px;
+	width: 50px;
+	margin-left: 20px;
+}
+
+.main .list-name-one{
+	margin-left: 20px;
+}
+
+.main .account-name{
+	color:white;
+	margin-left:50px; 
+	line-height:90px;
+	width:300px;
+	text-align:left;
+}
+
+.main .list-lock{
+	height: 60px;
+	width: 50px;
+}
+
+.main .list-delete{
+	height: 60px;
+	width: 80px;
+	right: 10%;
+}
+.main .list-devider{
+	height: 3px;
+}
+
+.main div{
+	height:60px;
+	text-align: center;
+	width:auto;
+	float:left;
+	font-size: 17px;
+}
+
+/*.main li{
+	height:60px;
+	width:auto;
+	font-size: 17px;
+	display: table; 
+}*/
+
+.clear-img{
+	width: 50px;
+	height: 50px;
+}
+
+.common-div-flex{
+	width: auto;
+	height: 100%;
+	margin-left: 20px;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+/*===========Title的样式=============*/
+
+
+.title{
+	height: 60px;
+	width: 100%;
+	min-width: 1280px;
+	background: url(../images/title_bkg_upper.png) no-repeat;
+	-moz-background-size:100% 100%;
+    -webkit-background-size:100% 100%;
+    -o-background-size:100% 100%;
+    background-size:100% 100%;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.title-left-div{
+	height: 60px;
+	width:10%;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content:center;
+	align-items: center;
+}
+
+.title-center-div{
+	height: 60px;
+	width:80%;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.title-right-div{
+	height: 60px;
+	width:10%;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.title-back-img{
+	width: 40px;
+	height: 40px;
+}
+
+.title-right-img{
+	width: 40px;
+	height: 40px;
+}
+
+
+.job-setting-title{
+	height: 6%;
+	width: 100%;
+	background: url(../images/title_bkg_upper.png) no-repeat;
+	-moz-background-size:100% 100%;
+    -webkit-background-size:100% 100%;
+    -o-background-size:100% 100%;
+    background-size:100% 100%;
+	/*background-size: 100%;*/
+}
+
+.job-setting-title-back{
+	width: 40px;
+	height: 40px;
+	margin-left: 5%;
+	margin-top: 10px;
+	float: left;
+}
+
+.job-setting-tile-span-1{
+	width: auto;
+	height: auto;
+	color:white;
+	float: left;
+	margin-left: 2%;
+	margin-top: 15px;
+}
+
+.job-setting-tile-span-2{
+	width: auto;
+	height: auto;
+	color:white;
+	float: left;
+	margin-left: 35%;
+	margin-top: 15px;
+}
+
+.home-system-setting{
+	display:none;
+	float: right;
+	margin-right: 8%;
+}
+
+.home-system-setting img{
+	display: inline;
+	width: 70px;
+	height: 55px;
+}
+
+/*===========bottom的样式==============*/
+.bottom{
+	height:6%;
+	width: 100%;
+	background: url(../images/title_bkg_lower.png) no-repeat;
+	-moz-background-size:100% 100%;
+    -webkit-background-size:100% 100%;
+    -o-background-size:100% 100%;
+    background-size:100% 100%;
+	display: block;
+}
+
+.bottom a{
+	width: 400px;
+	height:auto;
+	color:white;
+	float: left;
+	margin-top: 17px;
+	margin-left: 20px;
+}
+
+.bottom img{
+	width: 60px;
+	height: 60px;
+	float: left;
+}
+
+/*===========Dialog的样式============*/
+
+.loading-dialog-bg{
+	width:500px;
+	height:400px;
+	background:url(../images/loading-dialog-bg.png);
+	-moz-background-size:100% 100%;
+    -webkit-background-size:100% 100%;
+    -o-background-size:100% 100%;
+	background-size:100% 100%;
+	z-index:9999;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	border-radius: 10px;
+}
+
+
+
+
+#bodyHide{
+	display:none;
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+	filter:Alpha(Opacity=40);
+	opacity:0.4;
+	background-color:#000000;
+	-moz-background-size:100% 100%;
+    -webkit-background-size:100% 100%;
+    -o-background-size:100% 100%;
+	background-size:100% 100%;
+	z-index:101;
+}
+
+#dialog-delete{
+	display:none;
+	z-index:9999;
+	width: 1000px;
+	border:#000000 0px solid; 
+	position: absolute;
+}
+
+#dialog-lock{
+	display:none;
+	z-index:9999;
+	width: 1000px;
+	border:#000000 0px solid; 
+	position: absolute;
+}
+
+.dialog-title{
+	width: 100%;
+	height: 130px;
+	background-image: url(../images/dialog_top.png);
+	text-align: center;
+	padding-top: 70px;
+	font-size: 25px;
+}
+
+.dialog-center{
+	height: 300px;
+	width: 100%;
+	text-align: center;
+	background-image: url(../images/dialog_middle.png);
+	font-size: 25px;
+	padding: 100px;
+}
+
+.dialog-bottom{
+	height: 130px;
+	width: 100%;
+	background-image: url(../images/dialog_bottom.png);	
+}
+
+.dialog-bottom .left{
+	height: 100%;
+	width: 500px;
+	float: left;
+	font-size: 25px;
+	text-align: center;
+	padding-top: 25px;
+}
+.dialog-bottom .right{
+	height: 100%;
+	width: 500px;
+	float: left;
+	font-size: 25px;
+	text-align: center;
+	padding-top: 25px;
+}
+
+
+.dialog-lock-center{
+	height: 300px;
+	width: 100%;
+	background: url(../images/dialog_middle.png);
+}
+
+.dialog-lock-middle-list{
+	padding-top: 50px;
+}
+
+.dialog-lock-middle-list span{
+	width: 200px;
+	height: 50px;
+	font-size: 25px;
+	text-align: center;
+	margin-left: 100px;
+}
+
+.add-job-input{
+	width: 200px;
+	height: 50px;
+	background: url(../images/input.png) no-repeat;
+	-moz-background-size:200px 50px;
+    -webkit-background-size:200px 50px;
+    -o-background-size:200px 50px;
+    background-size:200px 50px;
+	float: right;
+	margin-right: 100px;
+	font-size: 25px;
+}
+
+
+
+.dialog-lock-input-pwd{
+	width: 200px;
+	height: 50px;
+	background: url(../images/input.png) no-repeat;
+	-moz-background-size:200px 50px;
+    -webkit-background-size:200px 50px;
+    -o-background-size:200px 50px;
+    background-size:200px 50px;
+	float: right;
+	margin-right: 100px;
+	font-size: 25px;
+}
+
+.dialog-lock-img{
+	width: 50px;
+	height: 50px;
+	background: url(../images/txt_clear.png) no-repeat;
+	-moz-background-size:50px 50px;
+    -webkit-background-size:50px 50px;
+    -o-background-size:50px 50px;
+    background-size:50px 50px;
+	border:0;
+	float: right;
+	margin-right: 100px;
+	
+}
+
+#dialog-sign{
+	display:none;
+	z-index:9999;
+	width: 1000px;
+	border:#000000 0px solid; 
+	position: absolute;
+}
+
+.dialog-sign-bottom{
+	height: 130px;
+	width: 100%;
+	background-image: url(../images/dialog_sign_bottom.png);	
+}
+
+.dialog-sign-bottom-font{
+	height: 100%;
+	width: 100%;
+	float: left;
+	font-size: 25px;
+	text-align: center;
+	padding-top: 25px;
+}
+
+.dialog-sign-input{
+	width: 200px;
+	height: 50px;
+	background: url(../images/input_keypad.png) no-repeat;
+	-moz-background-size:200px 50px;
+    -webkit-background-size:200px 50px;
+    -o-background-size:200px 50px;
+    background-size:200px 50px;
+	float: right;
+	margin-right: 100px;
+	font-size: 25px;
+}
+
+
+/*=========分页的样式===========*/
+.page{
+    list-style: none;
+	margin-left: 300px;
+	margin-top: 50px;
+}
+.page>li{
+    float: left;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.page .pageItem{
+    border: solid thin #DDDDDD;
+    margin: 5px;
+}
+.page .pageItemActive{
+    border: solid thin #0099FF;
+    margin: 5px;
+    background-color: #0099FF;
+    color:white;
+}
+.page .pageItem:hover{
+    border: solid thin #0099FF;
+    background-color: #0099FF;
+    color:white;
+}
+.page .pageItemDisable{
+    border: solid thin #DDDDDD;
+    margin: 5px;
+    background-color: #DDDDDD;
+}
+
+
+
+/*==========select-account页面的css============*/
+.container-main{
+	width: 100%;
+	height: 94%;
+	min-width: 1280px;
+	background:url(../images/background_offic365.png) no-repeat;
+	-moz-background-size:100%  100%;
+    -webkit-background-size:100%  100%;
+    -o-background-size:100%  100%;
+    background-size:100%  100%;
+	overflow: auto;
+}
+
+.main{
+	width:90%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.content{
+	width: 100%;
+	height:auto;
+	margin-top: 20px;
+	-webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+
+#content-two{
+	-webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+
+.li-style{
+	height: 90px;
+	width: 100%;
+	border-bottom: 1px solid white;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.li-style-two{
+	height: 90px;
+	width: 100%;
+	border-bottom: 1px solid white;
+}
+
+
+/*===============LocalMachineAccount的样式================*/
+
+/*---------------添加Job的主界面Content样式----------------*/
+.main .job-list-save-as{
+	height: 60px;
+	width: 80px;
+	right: 10%;
+	float: right;
+	right: 310px;
+}
+
+.main .job-list-setting{
+	height: 60px;
+	width: 70px;
+	right: 10%;
+	float: right;
+	right: 310px;
+}
+
+.main .job-list-edit{
+	height: 60px;
+	width: 80px;
+	right: 10%;
+	float: right;
+	right: 310px;
+}
+
+/*---------------Job Setting界面的所有的样式----------------*/
+
+.main .job-setting-right-div{
+	width: 100px;
+	height: 90px;
+	float: right;	
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.main .job-usb-right-div{
+	width: 200px;
+	height: 90px;
+	float: right;	
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.main .job-setting-right-arrow{	
+	height: 50px;
+	width: 50px;
+}
+
+.main .job-setting{
+	height: 50px;
+	width: 60px;
+}
+
+.main .job-setting-vline{
+	height: 60px;
+	width: auto;
+}
+
+.main .job-setting-toggle-btn{
+	height: 30px;
+	width: 50px;
+}
+
+
+/*-------------Scan Setting界面的所有的样式--------------*/
+
+.preview-toggle-btn{
+	height: 30px;
+	width: 50px;
+	float: right;
+	margin-right: 15%;
+	vertical-align:middle; 
+	display: table-cell;
+	margin-top: 10px;
+}
+
+.main .scan-setting{
+	height: 50px;
+	width: 60px;
+	float: right;
+	margin-right: 5%;
+}
+
+.main .scan-setting-vline{
+	height: 60px;
+	width: auto;
+}
+
+
+.scan-setting-des-div{
+	float:left;
+	color:white;
+	margin-left:100px;
+	line-height:90px;
+	text-align: left;
+}
+
+.scan-setting-img-div{
+	width:50px;
+	height: 90px;
+	color:white;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+/*-----------Scan Setting USB-------------*/
+
+.usb-input{
+	width: 400px;
+	height: 60px;
+	background: url(../images/txt_box_menu_520x87.png) no-repeat;
+	-moz-background-size:400px 60px;
+    -webkit-background-size:400px 60px;
+    -o-background-size:400px 60px;
+    background-size:400px 60px;
+	float:left;
+	font-size: 20px;
+
+
+}
+
+.usb-checkbox{
+	height: 50px;
+	width: 70px;
+	float: right;
+	margin-right: 15%;
+	vertical-align:middle; 
+	display: table-cell;
+	margin-top: 10px;
+}
+
+/*-----------Scan Setting FTP-------------*/
+
+.host-input{
+	width: 400px;
+	height: 60px;
+	background: url(../images/txt_box_keypad_500x87.png) no-repeat;
+	-moz-background-size:400px 60px;
+    -webkit-background-size:400px 60px;
+    -o-background-size:400px 60px;
+    background-size:400px 60px;
+	float:left;
+	font-size: 20px;
+}
+
+.protocol-input{
+	width: 230px;
+	height: 60px;
+	background: url(../images/txt_box_menu_350x87.png) no-repeat;
+	-moz-background-size:230px 60px;
+    -webkit-background-size:230px 60px;
+    -o-background-size:230px 60px;
+    background-size:230px 60px;
+	float:left;
+	font-size: 25px;
+}
+
+.port-input{
+	width: 150px;
+	height: 60px;
+	background: url(../images/txt_box_keypad_200x77.png) no-repeat;
+	-moz-background-size:150px 60px;
+    -webkit-background-size:150px 60px;
+    -o-background-size:150px 60px;
+    background-size:150px 60px;
+	float:left;
+	font-size: 25px;
+}
+
+/*-----------Scan Setting Mail-------------*/
+
+.to-input{
+	width: 500px;
+	height: 60px;
+	background: url(../images/txt_box_mailbook_700x87.png) no-repeat;
+	-moz-background-size:500px 60px;
+    -webkit-background-size:500px 60px;
+    -o-background-size:500px 60px;
+    background-size:500px 60px;
+	float:left;
+	font-size: 20px;
+}
+
+.sub-input{
+	width: 500px;
+	height: 60px;
+	background: url(../images/txt_box_mailstring_700x87.png) no-repeat;
+	-moz-background-size:500px 60px;
+    -webkit-background-size:500px 60px;
+    -o-background-size:500px 60px;
+    background-size:500px 60px;
+	float:left;
+	font-size: 20px;
+}
+
+.smtp-input{
+	width: 500px;
+	height: 60px;
+	background: url(../images/txt_box_search_700x87.png) no-repeat;
+	-moz-background-size:500px 60px;
+    -webkit-background-size:500px 60px;
+    -o-background-size:500px 60px;
+    background-size:500px 60px;
+	float:left;
+	font-size: 20px;
+}
+
+.smtp-img{
+	width: 50px;
+	height: 50px;
+	background: url(../images/refresh_90x87.png);
+	-moz-background-size:50px 50px;
+    -webkit-background-size:50px 50px;
+    -o-background-size:50px 50px;
+    background-size:50px 50px;
+	float: left;
+	margin-left: 20px;
+}
+
+
+
+/*--------Scan Setting XMP Watermark界面的所有的样式-----------*/
+
+.watermark-text-input{
+	width: 230px;
+	height: 50px;
+	background: url(../images/input_keypad.png) no-repeat;
+	-moz-background-size:230px 50px;
+    -webkit-background-size:230px 50px;
+    -o-background-size:230px 50px;
+    background-size:230px 50px;
+	float:left;
+	font-size: 25px;
+}
+
+.watermark-text-img{
+	width: 50px;
+	height: 50px;
+	background: url(../images/txt_clear.png) no-repeat;
+	-moz-background-size:50px 50px;
+    -webkit-background-size:50px 50px;
+    -o-background-size:50px 50px;
+    background-size:50px 50px;
+	border:none;
+	float: left;
+	margin-left: 20px;
+}
+
+.watermark-picture-input{
+	width: 300px;
+	height: 60px;
+	background: url(../images/txt_box_menu_350x87.png) no-repeat;
+	-moz-background-size:300px 60px;
+    -webkit-background-size:300px 60px;
+    -o-background-size:300px 60px;
+    background-size:300px 60px;
+	float:left;
+	font-size: 25px;
+}
+
+.watermark-picture-img{
+	width: 70px;
+	height: 50px;
+	background: url(../images/import_from_usb_120x87.png);
+	-moz-background-size:70px 50px;
+    -webkit-background-size:70px 50px;
+    -o-background-size:70px 50px;
+    background-size:70px 50px;
+	float: left;
+	margin-left: 20px;
+}
+
+/*--------Scan Setting XMP Metadata界面的所有的样式-----------*/
+
+.metadata-date-input{
+	width: 300px;
+	height: 60px;
+	background: url(../images/index_date_600x87.png) no-repeat;
+	-moz-background-size:300px 60px;
+    -webkit-background-size:300px 60px;
+    -o-background-size:300px 60px;
+    background-size:300px 60px;
+	float:left;
+	font-size: 25px;
+}
+
+
+/*------------LocalMachineAccount所有Dialog的样式-------------*/
+
+#dialog-info{
+	display:none;
+	z-index:10000;
+	width: 700px;
+	border:#000000 0px solid; 
+	position: absolute;
+}
+
+.info-dialog-title{
+	width: 100%;
+	height: 130px;
+	background: url(../images/dialog_top.png) no-repeat;
+	text-align: center;
+	padding-top: 70px;
+	-moz-background-size:100%  130px;
+    -webkit-background-size:100%  130px;
+    -o-background-size:100%  130px;
+    background-size:100%  130px;
+	font-size: 25px;
+}
+
+.info-dialog-center{
+	height: 200px;
+	width: 100%;
+	background: url(../images/dialog_middle.png) no-repeat;
+	-moz-background-size:100%  200px;
+    -webkit-background-size:100%  200px;
+    -o-background-size:100%  200px;
+    background-size:100%  200px;
+	text-align:center;
+	padding:70px;
+	text-align: center;
+	
+}
+
+.info-dialog-bottom{
+	height: 130px;
+	width: 100%;
+	background: url(../images/dialog_sign_bottom.png) no-repeat;	
+	-moz-background-size:100%  130px;
+    -webkit-background-size:100%  130px;
+    -o-background-size:100%  130px;
+    background-size:100%  130px;
+	text-align: center;
+	padding-top: 25px;
+}
+
+.add-job-tip{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	padding-top: 10px;
+}
+
+#dialog-add-job{
+	display:block;
+	z-index:9999;
+	width: 1000px;
+	border:#000000 0px solid; 
+	position: absolute;
+}
+
+.add-job-dialog-title{
+	width: 100%;
+	height: 130px;
+	background-image: url(../images/dialog_top.png);
+	text-align: center;
+	padding-top: 70px;
+	font-size: 25px;
+}
+
+
+.add-job-bottom{
+	height: 130px;
+	width: 100%;
+	background-image: url(../images/dialog_bottom.png);	
+}
+
+.add-job-bottom .left{
+	height: 100%;
+	width: 500px;
+	float: left;
+	font-size: 25px;
+	text-align: center;
+	padding-top: 25px;
+}
+.add-job-bottom .right{
+	height: 100%;
+	width: 500px;
+	float: left;
+	font-size: 25px;
+	text-align: center;
+	padding-top: 25px;
+}
+
+
+.add-job-center{
+	height: 400px;
+	width: 100%;
+	background: url(../images/dialog_middle.png);
+}
+
+.add-job-middle-list{
+	padding-top: 50px;
+}
+
+.add-job-middle-list span{
+	width: 200px;
+	height: 50px;
+	font-size: 25px;
+	text-align: center;
+	margin-left: 100px;
+}
+
+#dialog-delete-job{
+	display:none;
+	z-index:9999;
+	width: 700px;
+	border:#000000 0px solid; 
+	position: absolute;
+}
+
+.delete-job-dialog-center{
+	height: 200px;
+	width: 100%;
+	background: url(../images/dialog_middle.png) no-repeat;
+	-moz-background-size:100%  200px;
+    -webkit-background-size:100%  200px;
+    -o-background-size:100%  200px;
+    background-size:100%  200px;
+	text-align:center;
+	padding:70px;
+	text-align: center;
+}
+
+.delete-job-dialog-bottom{
+	height: 130px;
+	width: 100%;
+	background: url(../images/dialog_bottom.png) no-repeat;
+	-moz-background-size:100%  130px;
+    -webkit-background-size:100%  130px;
+    -o-background-size:100%  130px;
+    background-size:100%  130px;
+	text-align:center;
+}
+
+.delete-job-dialog-bottom .left{
+	height: 100%;
+	width: 50%;
+	float: left;
+	font-size: 25px;
+	text-align: center;
+	padding-top: 25px;
+}
+.delete-job-dialog-bottom .right{
+	height: 100%;
+	width: 50%;
+	float: left;
+	font-size: 25px;
+	text-align: center;
+	padding-top: 25px;
+}
+
+.dialog-lock-input{
+	width: 200px;
+	height: 50px;
+	background: url(../images/input.png) no-repeat;
+	-moz-background-size:200px 50px;
+    -webkit-background-size:200px 50px;
+    -o-background-size:200px 50px;
+    background-size:200px 50px;
+	float: right;
+	margin-right: 100px;
+	font-size: 25px;
+	outline: none;
+}
+
+.dialog-lock-input-pwd{
+	width: 200px;
+	height: 50px;
+	background: url(../images/input.png) no-repeat;
+	-moz-background-size:200px 50px;
+    -webkit-background-size:200px 50px;
+    -o-background-size:200px 50px;
+    background-size:200px 50px;
+	float: right;
+	margin-right: 100px;
+	font-size: 25px;
+}
+
+.add-job-img{
+	width: 50px;
+	height: 50px;
+	background: url(../images/txt_clear.png);
+	-moz-background-size:50px 50px;
+    -webkit-background-size:50px 50px;
+    -o-background-size:50px 50px;
+    background-size:50px 50px;
+	float: right;
+	margin-right: 100px;
+}
+
+#dialog-sign{
+	display:none;
+	z-index:9999;
+	width: 1000px;
+	border:#000000 0px solid; 
+	position: absolute;
+}
+
+.dialog-sign-bottom{
+	height: 130px;
+	width: 100%;
+	background-image: url(../images/dialog_sign_bottom.png);	
+}
+
+.dialog-sign-bottom-font{
+	height: 100%;
+	width: 100%;
+	float: left;
+	font-size: 25px;
+	text-align: center;
+	padding-top: 25px;
+}
+
+.dialog-sign-input{
+	width: 200px;
+	height: 50px;
+	background: url(../images/input_keypad.png) no-repeat;
+	-moz-background-size:200px 50px;
+    -webkit-background-size:200px 50px;
+    -o-background-size:200px 50px;
+    background-size:200px 50px;
+	float: right;
+	margin-right: 100px;
+	font-size: 25px;
+}
+
+#dialog-edit-job{
+	display:none;
+	z-index:9999;
+	width: 1000px;
+	border:#000000 0px solid; 
+	position: absolute;
+}
+
+#dialog-protection-pwd{
+	display:none;
+	z-index:9999;
+	width: 1000px;
+	border:#000000 0px solid; 
+	position: absolute;
+}
+
+
+/*-----------File Name主页面的样式------------*/
+
+.file-name-toggle-btn{
+	display: none;
+}
+
+.file-name-toggle-btn + label{
+	width:50px;
+	height:30px;
+	background: url(../images/dialog_off_79x49.png) no-repeat;
+	-moz-background-size:50px 30px;
+    -webkit-background-size:50px 30px;
+    -o-background-size:50px 30px;
+	background-size: 50px 30px;
+}
+
+.file-name-toggle-btn:checked + label{
+	width:50px;
+	height:30px;
+	background: url(../images/dialog_on_79x49.png) no-repeat;
+	-moz-background-size:50px 30px;
+    -webkit-background-size:50px 30px;
+    -o-background-size:50px 30px;
+	background-size: 50px 30px;
+}
+
+.file-name-input-short{
+	width: 250px;
+	height: 50px;
+	background: url(../images/txt_box_keypad_500x87.png) no-repeat;
+	-moz-background-size:250px 50px;
+    -webkit-background-size:250px 50px;
+    -o-background-size:250px 50px;
+    background-size:250px 50px;
+	font-size: 25px;
+}
+
+/*===============System Settings的样式================*/
+
+/*-----------System Settings主页面的样式------------*/
+
+.system-setting-toggle-btn{
+	height: 30px;
+	width: 50px;
+	float: right;
+	margin-right:30%;
+	margin-top: 20px;
+}
+
+.system-setting-toggle-btn-2{
+	height: 30px;
+	width: 50px;
+	float: right;
+	margin-right:6.8%;
+	margin-top: 20px;
+}
+.system-setting-toggle-btn-3{
+	height: 30px;
+	width: 50px;
+	float: right;
+	margin-right:20%;
+	margin-top: 20px;
+}
+
+
+.system-setting-wifi-btn{
+	display: none;
+}
+
+.system-setting-wifi-btn-2{
+	display: none;
+}
+
+.system-setting-wifi-btn-3{
+	display: none;
+}
+
+.system-setting-wifi-btn + label{
+	width:50px;
+	height:30px;
+	background: url(../images/dialog_off_79x49.png) no-repeat;
+	-moz-background-size:50px 30px;
+    -webkit-background-size:50px 30px;
+    -o-background-size:50px 30px;
+	background-size: 50px 30px;
+}
+
+.system-setting-wifi-btn:checked + label{
+	width:50px;
+	height:30px;
+	background: url(../images/dialog_on_79x49.png) no-repeat;
+	-moz-background-size:50px 30px;
+    -webkit-background-size:50px 30px;
+    -o-background-size:50px 30px;
+	background-size: 50px 30px;
+}
+
+.system-setting-wifi-btn-2 + label{
+	width:50px;
+	height:30px;
+	background: url(../images/dialog_off_79x49.png) no-repeat;
+	-moz-background-size:50px 30px;
+    -webkit-background-size:50px 30px;
+    -o-background-size:50px 30px;
+	background-size: 50px 30px;
+	float: right;
+	margin-right:6.8%;
+	margin-top: 20px;
+}
+
+.system-setting-wifi-btn-2:checked + label{
+	width:50px;
+	height:30px;
+	background: url(../images/dialog_on_79x49.png) no-repeat;
+	-moz-background-size:50px 30px;
+    -webkit-background-size:50px 30px;
+    -o-background-size:50px 30px;
+	background-size: 50px 30px;
+	float: right;
+	margin-right:6.8%;
+	margin-top: 20px;
+}
+
+.system-setting-wifi-btn-3 + label{
+	width:50px;
+	height:30px;
+	background: url(../images/dialog_off_79x49.png) no-repeat;
+	-moz-background-size:50px 30px;
+    -webkit-background-size:50px 30px;
+    -o-background-size:50px 30px;
+	background-size: 50px 30px;
+	float: right;
+	margin-right:20%;
+	margin-top: 20px;
+}
+
+.system-setting-wifi-btn-3:checked + label{
+	width:50px;
+	height:30px;
+	background: url(../images/dialog_on_79x49.png) no-repeat;
+	-moz-background-size:50px 30px;
+    -webkit-background-size:50px 30px;
+    -o-background-size:50px 30px;
+	background-size: 50px 30px;
+	float: right;
+	margin-right:20%;
+	margin-top: 20px;
+}
+
+
+.system-setting-wifi-url{
+	height: 60px;
+	width: 85px;
+}
+
+.system-setting-more-settings{
+	height: 70px;
+	width: 70px;
+}
+
+.system-setting-next{
+	height: 50px;
+	width: 50px;
+}
+
+.system-setting-update{
+	height: 50px;
+	width: 70px;
+}
+
+.system-setting-usb{
+	height: 50px;
+	width: 70px;
+}
+
+/*-----------Device Information主页面的样式------------*/
+
+.dev-info-dev-name{
+	width: 300px;
+	height: 60px;
+	background: url(../images/input.png) no-repeat;
+	-moz-background-size:300px 60px;
+    -webkit-background-size:300px 60px;
+    -o-background-size:300px 60px;
+    background-size:300px 60px;
+	float: right;
+	margin-right: 100px;
+	font-size: 25px;
+}
+
+
+
+/*----------Add account 頁面--------*/
+.add-account-input-keyboard{
+	margin-left: 200px;
+	width: 300px;height: 50px;
+	background: url(../images/txt_box_keypad.png) no-repeat;
+	background-size: 100% 100%;
+	padding-left: 10px;
+	outline: none;
+	font-size: 20px;
+}
+
+.add-account-input-menu{
+	margin-left: 200px;
+	width: 300px;height: 50px;
+	background: url(../images/txt_box_menu_620x87.png) no-repeat;
+	background-size: 100% 100%;
+	padding-left: 10px;
+	outline: none;
+	font-size: 20px;
+
+}
+
+.add-account-span{
+	font-size: 25px;text-align: left;
+}
+
+.add-account-clear{
+	width: 50px;
+	height: 50px;
+	background: url(../images/txt_clear.png);
+	-moz-background-size:50px 50px;
+	-webkit-background-size:50px 50px;
+	-o-background-size:50px 50px;
+	background-size:50px 50px;
+	float: right;
+	margin-right: 100px;
+	outline: none;margin-left: 30px
+
+}
+.input-checkbox{
+	/*width: 50px;*/
+	/*position: absolute;*/
+	/*height:50px;*/
+	display: none;
+}
+
+/*----------自定义 checkbox--------*/
+.input-checkbox+label{
+	display: inline-block;
+	padding: 0px;
+	width: 60px;
+	height:50px;
+	background: url(../images/dialog_uncheck_100x77.png) no-repeat;
+	vertical-align: middle;
+	background-size: 100% 100%;
+}
+
+.input-checkbox:checked+label{
+	width: 60px;
+	height:50px;
+	background: url(../images/dialog_checked_100x77.png) no-repeat;
+	vertical-align: middle;
+	background-size: 100% 100%;
+	display: inline-block;
+
+}
+/*----------自定义 switch--------*/
+
+.input-switch{
+	/*width: 50px;*/
+	/*position: absolute;*/
+	/*height:50px;*/
+	display: none;
+}
+
+
+.input-switch+label{
+	padding: 0px;
+	width: 50px;
+	height:30px;
+	background: url(../images/dialog_off_79x49.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.input-switch:checked+label{
+	width: 50px;
+	height:30px;
+	background: url(../images/dialog_on_79x49.png) no-repeat;
+	vertical-align: middle;
+	background-size: 100% 100%;
+	display: inline-block;
+
+}
+
+/*----------Administor Management 頁面----------*/
+
+.input-box-flex-div{
+	width: auto;
+	height: 100%;
+	margin-left:100px;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.clear-img-div{
+	width: auto;
+	height: 100%;
+	margin-left:20px;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.input-long{
+	width: 320px;
+	height: 55px;
+	background: url(../images/txt_box_keypad_500x87.png) no-repeat;
+	-moz-background-size:320px 55px;
+    -webkit-background-size:320px 55px;
+    -o-background-size:320px 55px;
+    background-size:320px 55px;
+	font-size: 25px;
+}
+
+.input-short{
+	width: 250px;
+	height: 50px;
+	background: url(../images/txt_box_keypad_500x87.png) no-repeat;
+	-moz-background-size:250px 50px;
+    -webkit-background-size:250px 50px;
+    -o-background-size:250px 50px;
+    background-size:250px 50px;
+	font-size: 25px;
+}
+
+.water-position-container{
+	display: flex;
+	flex-direction: column;
+	background-image: url(../images/water_position.png);
+	background-size: 100% 100%;
+}
+
+.water-position-span{
+	width:200px;
+	height: 100px;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 100px;
+	cursor: pointer;
+}
+
+.water-position-span-select{
+	width:200px;
+	height: 100px;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 100px;
+	color: #5f3f3f;
+	cursor: pointer;
+}
+
+.scan-setting-format-container{
+	display: flex;
+	flex-direction: column;
+}
+
+.scan-setting-format-span{
+	line-height: 60px;
+	width: 180px;
+	display: inline-block;
+	margin-left: 20px;
+}
+
+
+.right-round {
+	width: 50px;
+	height: 60px;
+	vertical-align: middle;
+	background-size: 100% 100%;
+	margin-right: 50px;
+	float: right;
+	background-image: url(../images/water_select_70x87.png)
+
+}
+.right-round-selected{
+	width: 50px;
+	height: 60px;
+	vertical-align: middle;
+	background-size:100% 100%;
+	margin-right: 50px;
+	float: right;
+	background-image: url(../images/water_current.png)
+}
+
+.merge-span{
+	line-height: 60px;
+	width: 250px;
+	display: inline-block;
+	margin-left: 20px;
+}
+
+.merge-container{
+	display: flex;
+	flex-direction: column;
+}
+
+.pdf-span{
+	line-height: 60px;
+	width: 200px;
+	display: inline-block;
+	margin-left: 20px;
+	text-align: left;
+}
+
+.pdf-item-div{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.input-keyboard{
+	width: 300px;
+	height: 50px;
+	background: url(../images/txt_box_keypad.png) no-repeat;
+	background-size: 100% 100%;
+	padding-left: 10px;
+	outline: none;
+	font-size: 20px;
+}
+
+.ul-li-right-div{
+	width: 200px;
+	height: 90px;
+	float: right;	
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}

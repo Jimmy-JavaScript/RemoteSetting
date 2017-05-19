@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eScan</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/component.css" />
+    <link rel="stylesheet" href="../../js/jquery-ui-1.12.1/jquery-ui.css" />
+    <script src="../../js/modernizr.custom.js"></script>
+    <script src="../../js/jquery-3.2.0.min.js"></script>
+    <script src="../../js/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/page.js"></script>
+    <script src="../../js/json.js"></script>
+    <script src="../../js/system-settings.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(
+            function () {
+                switchPage();
+                wifiEthernetControl();
+                language();
+                calibration();
+                exportUsb();
+                update();
+                importUsb();
+                clearAllSettings();
+                exportLog();
+            });
+
+        function switchPage() {
+            $('#admin-management').click(
+                function () {
+                    var pageSwtich = new PageSwitch();
+                    pageSwtich.administratorManagement();
+                });
+            $('#dev-info').click(
+                function () {
+                    var pageSwtich = new PageSwitch();
+                    pageSwtich.deviceInformation();
+                });
+        }
+
+        function wifiEthernetControl() {
+            var ethernet = new Ethernet();
+            ethernet.ehernetSwitch();
+            var wifi = new Wifi();
+            wifi.wifiSwitch();
+            wifi.hotsPotSwitch();
+        }
+
+        function language() {
+            var lan = new Language();
+            lan.selectLanguage();
+        }
+
+        function calibration() {
+            var cal = new Calibration();
+            cal.calibration();
+        }
+
+        function exportUsb() {
+            var exp = new ExportUsb();
+            exp.exportUsb();
+        }
+
+        function update() {
+            var upd = new Update();
+            upd.update();
+        }
+
+        function importUsb() {
+            var imp = new ImportUsb();
+            imp.importUsb();
+        }
+
+        function clearAllSettings() {
+            var cle = new ClearAllSettings();
+            cle.clearAllSettings();
+        }
+
+        function exportLog() {
+            var exp = new ExportLog();
+            exp.exportLog();
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="title">
+        <div class="title-left-div">
+            <img class="title-back-img" src="../../images/arrow_back.png" onclick="javascript:history.go(-1);">
+        </div>
+        <div class="title-center-div">
+            <span id="title">System Settings</span>
+        </div>
+        <div class="title-right-div">
+        </div>
+    </div>
+
+    <div class="container-main">
+        <div class="main">
+            <ul id="content" class="content">
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Version
+                    </div>
+                    <div class="scan-setting-des-div">
+                        1.0.0.39
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Ethernet
+                    </div>
+                    <div id="ethernet-status" class="scan-setting-des-div">
+                        Disconnected
+                    </div>
+                    <div style="width: 200px;height: 90px;display: flex;flex-direction: row;flex-wrap: nowrap;justify-content: center;align-items: center;margin-left:10%;">
+                        <input id="ethernet-switch" type="checkbox" class="system-setting-wifi-btn">
+                        <label id="ethernet-label" for="ethernet-switch"></label>
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img id="check-net" class="system-setting-wifi-url" src="../../images/wifi_url_120x87.png">
+                    </div>
+
+
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Wi-Fi
+                    </div>
+                    <div id="wifi-status" class="scan-setting-des-div">
+                        Disconnected
+                    </div>
+                    <div style="width: 200px;height: 90px;display: flex;flex-direction: row;flex-wrap: nowrap;justify-content: center;align-items: center;margin-left:10%;">
+                        <input id="wifi-switch" type="checkbox" class="system-setting-wifi-btn">
+                        <label id="wifi-label" for="wifi-switch"></label>
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="hotspot-switch" type="checkbox" class="system-setting-wifi-btn">
+                        <label id="hotspot-label" for="hotspot-switch"></label>
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        Hotspot
+                    </div>
+                    
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        More Settings
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img class="system-setting-more-settings" src="../../images/sys_setting_90x90.png">
+                    </div>
+                    
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Language
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img id="language" class="system-setting-next" src="../../images/arrow_next.png">
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Calibration
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img id="calibration" class="system-setting-next" src="../../images/arrow_next.png">
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Update
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img id="update" class="system-setting-update" src="../../images/update_120x87.png">
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Export All Settings
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img id="export-usb" class="system-setting-usb" src="../../images/download2usb_120x87.png">
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Import All Settings
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img id="import-usb" class="system-setting-usb" src="../../images/import_from_usb_120x87.png">
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Clear All Settings
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img id="clear-all" class="system-setting-next" src="../../images/arrow_next.png">
+                    </div>       
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Device Information
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                         <img id="dev-info" class="system-setting-next" src="../../images/arrow_next.png">
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Export Log
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img id="export-log" class="system-setting-usb" src="../../images/download2usb_120x87.png">
+                    </div>  
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Administrator Management
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img id="admin-management" class="system-setting-next" src="../../images/arrow_next.png">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="bodyHide">
+    </div>
+
+    <!--info-->
+    <div id="dialog-info">
+        <div id="title" class="info-dialog-title">
+            info
+        </div>
+        <div id="info-content" class="info-dialog-center">
+            Connector Name must not be empty.
+        </div>
+        <div class="info-dialog-bottom" onclick="hideInfoDialog()">
+            OK
+        </div>
+    </div>
+
+    <!--Import-->
+    <div id="dialog-info">
+        <div id="title" class="info-dialog-title">
+            info
+        </div>
+        <div id="info-content" class="info-dialog-center">
+            <span>
+            Insert a calibration sheet into the ADF input tray and press "Start".
+        </span>
+            <div>
+                <img src="../../images/calibration.png">
+            </div>
+        </div>
+        <div class="dialog-bottom">
+            <div class="left" onclick="hideDeleteDJobDialog()">No</div>
+            <div class="right" onclick="hideDeleteJobDialog()">Yes</div>
+        </div>
+    </div>
+
+
+    <!--Clear All Settings-->
+    <div id="dialog-info">
+        <div id="title" class="info-dialog-title">
+            Message
+        </div>
+        <div id="info-content" class="info-dialog-center">
+            <span>
+            You are about to reset all user data and logs.All settings will need to bereconfigured.
+            Are you sure you want to  proceed?
+        </span>
+        </div>
+        <div class="dialog-bottom">
+            <div class="left" onclick="hideDeleteDJobDialog()">No</div>
+            <div class="right" onclick="hideDeleteJobDialog()">Yes</div>
+        </div>
+    </div>
+
+
+    <!--Export Log-->
+    <div id="dialog-info">
+        <div id="title" class="info-dialog-title">
+            Export Log
+        </div>
+        <div id="info-content" class="info-dialog-center">
+            <span>
+            You are about to reset all user data and logs.All settings will need to bereconfigured.
+            Are you sure you want to  proceed?
+        </span>
+        </div>
+        <div class="dialog-bottom">
+            <div class="left" onclick="hideDeleteDJobDialog()">No</div>
+            <div class="right" onclick="hideDeleteJobDialog()">Yes</div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!--Add Job Dialog-->
+    <div id="dialog-add-job">
+        <div id="add-job-dialog-title" class="add-job-dialog-title">
+            Add
+        </div>
+
+        <div class="add-job-center">
+            <div class="add-job-tip">you can enter up to 18 characters or numbers</div>
+            <div class="add-job-middle-list">
+                <span id="span-one">Job Name</span>
+                <img class="add-job-img">
+                <input id="add-job-name" class="add-job-input" />
+            </div>
+            <div class="add-job-middle-list">
+                <span id="span-two">Group(pr Owner)</span>
+                <img class="add-job-img">
+                <input id="add-job-pwd" class="add-job-input" type="password">
+            </div>
+            <div class="add-job-middle-list">
+                <span id="span-three">Protection Password</span>
+                <img class="add-job-img">
+                <input id="add-job-pro-pwd" class="add-job-input" type="password">
+            </div>
+            <div class="add-job-middle-list">
+                <span id="span-three">Confirm Password</span>
+                <img class="add-job-img">
+                <input id="add-job-con-pwd" class="add-job-input" type="password">
+            </div>
+        </div>
+        <div class="add-job-bottom">
+            <div class="left" onclick="addJobCancel()">Cancel</div>
+            <div class="right" onclick="addJobNext()">Save</div>
+        </div>
+    </div>
+
+    <!--Sign in Dialog-->
+    <div id="dialog-sign">
+        <div class="dialog-title">
+            Sign in
+        </div>
+        <div class="dialog-lock-center">
+            <div class="dialog-lock-middle-list">
+                <span id="span-one">Current PIN</span>
+                <div id="dialog-sign-pin" style="float:right;margin-right: 330px;font-size:25px;text-align:left;"></div>
+            </div>
+            <div class="dialog-lock-middle-list">
+                <span id="span-three">Confirm PIN</span>
+                <img class="dialog-lock-img">
+                <input id="input-three" class="dialog-sign-input" type="password">
+            </div>
+        </div>
+        <div class="dialog-sign-bottom">
+            <div id="dialog-save" onclick=" hideSignDialog()" class="dialog-sign-bottom-font">Confirm</div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+/*============Menu的样式=============*/
+.cbp-spmenu {
+	height:88%;
+	width: 100%;
+	background:url(../images/background_offic365.png) no-repeat;
+	-moz-background-size:100% 100%;
+    -webkit-background-size:100% 100%;
+    -o-background-size:100% 100%;
+    background-size:100% 100%;
+	background-size: cover;
+}
+
+.cbp-spmenu h3 {
+	/*color: #afdefa;*/
+	color: #000000;
+	font-size: 1.9em;
+	padding: 20px;
+	margin: 0;
+	font-weight: 300;
+	background: white;
+}
+
+.cbp-spmenu a {
+	display: block;
+	/*color:  #afdefa;*/
+	color:white;
+	/*font-size: 1.1em;
+	font-weight: 300;*/
+}
+
+.cbp-spmenu a:hover {
+	background: #258ecd;
+}
+
+.cbp-spmenu a:active {
+	background: #afdefa;
+	color: #47a3da;
+}
+
+/* Orientation-dependent styles for the content of the menu */
+
+.cbp-spmenu-vertical {
+	overflow-y: auto;
+}
+
+.cbp-spmenu-vertical a {
+	border-bottom: 1px solid #f0f0f0;
+	padding: 1.5em;
+}
+
+.cbp-spmenu-horizontal {
+	width: 100%;
+	height: 150px;
+	left: 0;
+	z-index: 1000;
+	overflow: hidden;
+}
+
+.cbp-spmenu-horizontal h3 {
+	height: 100%;
+	width: 20%;
+	float: left;
+}
+
+.cbp-spmenu-horizontal a {
+	float: left;
+	width: 20%;
+	padding: 0.8em;
+	border-left: 1px solid #258ecd;
+}
+
+/* Vertical menu that slides from the left or right */
+
+.cbp-spmenu-left {
+	left: -240px;
+}
+
+.cbp-spmenu-right {
+	right: -240px;
+}
+
+.cbp-spmenu-left.cbp-spmenu-open {
+	left: 0px;
+}
+
+.cbp-spmenu-right.cbp-spmenu-open {
+	right: 0px;
+}
+
+/* Horizontal menu that slides from the top or bottom */
+
+.cbp-spmenu-top {
+	top: -150px;
+}
+
+.cbp-spmenu-bottom {
+	bottom: -150px;
+}
+
+.cbp-spmenu-top.cbp-spmenu-open {
+	top: 0px;
+}
+
+.cbp-spmenu-bottom.cbp-spmenu-open {
+	bottom: 0px;
+}
+
+/* Push classes applied to the body */
+
+.cbp-spmenu-push {
+	overflow-x: hidden;
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.cbp-spmenu-push-toright {
+	left: 240px;
+}
+
+.cbp-spmenu-push-toleft {
+	left: -240px;
+}
+
+/* Transitions */
+
+.cbp-spmenu,
+.cbp-spmenu-push {
+	transition: all 0.3s ease;
+	-moz-transition:all 0.3s ease; /* Firefox 4 */
+	-webkit-transition:all 0.3s ease; /* Safari and Chrome */
+	-o-transition:all 0.3s ease; /* Opera */
+}
+
+/* Example media queries */
+
+@media screen and (max-width: 55.1875em){
+
+	.cbp-spmenu-horizontal {
+		font-size: 75%;
+		height: 110px;
+	}
+
+	.cbp-spmenu-top {
+		top: -110px;
+	}
+
+	.cbp-spmenu-bottom {
+		bottom: -110px;
+	}
+
+}
+
+@media screen and (max-height: 26.375em){
+
+	.cbp-spmenu-vertical {
+		font-size: 90%;
+		width: 190px;
+	}
+
+	.cbp-spmenu-left,
+	.cbp-spmenu-push-toleft {
+		left: -190px;
+	}
+
+	.cbp-spmenu-right {
+		right: -190px;
+	}
+
+	.cbp-spmenu-push-toright {
+		left: 190px;
+	}
+}
+
+.home-icon{
+	margin-top: 15px;
+	margin-left: 15px;
+}
+
+.ul{
+	height:4em;
+	/*padding: 1em;*/
+	background-image: url(../images/title_home.png);
+}
+
+.home-title{
+	position:absolute;
+	width: 100%;
+	font-size: 40px;
+	display: inline;
+	text-align:center;
+	padding-right: 50px;
+	line-height: 60px;
+}
+
+
+

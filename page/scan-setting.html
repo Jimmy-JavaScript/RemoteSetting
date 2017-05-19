@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eScan</title>
+    <link rel="stylesheet" type="text/css" href="../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="../css/slider.css" />
+    <link rel="stylesheet" type="text/css" href="../css/component.css" />
+    <link rel="stylesheet" href="../js/jquery-ui-1.12.1/jquery-ui.css" />
+    <script src="../js/modernizr.custom.js"></script>
+    <script src="../js/jquery-3.2.0.min.js"></script>
+    <script src="../js/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/app.js"></script>
+
+    <script src="../js/websocket/websocket.js"></script>
+    <script src="../js/page.js"></script>
+    <script src="../js/json.js"></script>
+    <script src="../js/file-name.js"></script>
+    <script src="../js/dialog.js"></script>
+    <script src="../js/scan-setting.js"></script>
+    <script src="../js/RangeSlider.js"></script>
+    <script type="text/javascript">
+        $(document).ready(
+            function () {
+                getSelectedAccount();
+                initClick();
+                initWebSocket();
+            });
+
+        function initWebSocket() {
+
+            var opt = 'action=add&name=cNgYPZXnX&type=pcclient';
+            webSocket.init(opt, function (jsonData) {
+                initScanSetting(jsonData);
+            });
+        }
+
+        function getSelectedAccount() {
+            let id = $.getUrlParam(Constants.ACCOUNT_TYPE_ID);
+            let name = 'Select';
+            switch (parseInt(id)) {
+                case Constants.ACCOUNTS_TYPE.MICROSOFT:
+                    name += ' ' + 'Microsoft Account';
+                    break;
+                case Constants.ACCOUNTS_TYPE.SHAREPOINT:
+                    name += ' ' + 'SharePoint Account';
+                    break;
+                case Constants.ACCOUNTS_TYPE.FTP:
+                    name += ' ' + 'FTP Account';
+                    break;
+                case Constants.ACCOUNTS_TYPE.LOCAL_MACHINE:
+                    name += ' ' + 'Local Machine Account';
+                    break;
+                case Constants.ACCOUNTS_TYPE.GOOGLE:
+                    name += ' ' + 'Google Account';
+                    break;
+                case Constants.ACCOUNTS_TYPE.DROP_BOX:
+                    name += ' ' + 'Dropbox Account';
+                    break;
+                case Constants.ACCOUNTS_TYPE.BOX:
+                    name += ' ' + 'Box Account';
+                    break;
+                case Constants.ACCOUNTS_TYPE.EVERNOTE:
+                    name += ' ' + 'Evernote Account';
+                    break;
+                case Constants.ACCOUNTS_TYPE.OWN_CLOUD:
+                    name += ' ' + 'OwnCloud Account';
+                    break;
+            }
+            $("#system-setting").css("display", "inline-block")
+        }
+
+        function clickFunction() {
+            var scanSetting = scanSettingFun();
+            scanSetting.setting();
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="title">
+        <div class="title-left-div">
+            <img class="title-back-img" src="../images/arrow_back.png" onclick="javascript:history.go(-1);">
+        </div>
+        <div class="title-center-div">
+            <span id="title">Scan Settings</span>
+        </div>
+        <div class="title-right-div">
+            <span>Selectable</span>
+        </div>
+    </div>
+
+    <div class="container-main">
+        <div class="main">
+            <ul id="content-one" class="content">
+                <li class="li-style-two">
+                    <div class="account-name" class="scan-setting-name-div">
+                        Preview
+                    </div>
+                    <div class="scan-setting-des-div">
+                        Preview and Edit Mode
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="switch1" type="checkbox" class="input-switch">
+                        <label for="switch1"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        File Name
+                    </div>
+                    <div id="file-name" class="scan-setting-des-div">
+                        
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img class="scan-setting-vline" src="../images/devide_vline_20x77.png">
+                        <input id="check" type="checkbox" class="input-checkbox" style="float: right">
+                        <label style="float: right" for="check"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Scan Mode
+                    </div>
+                    <div id="scan-mode" class="scan-setting-des-div">
+                        
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img class="scan-setting-vline" src="../images/devide_vline_20x77.png">
+                        <input id="check1" type="checkbox" class="input-checkbox" style="float: right">
+                        <label style="float: right" for="check1"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Color Mode
+                    </div>
+                    <div id="color-mode" class="scan-setting-des-div">
+                        
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img class="scan-setting-vline" src="../images/devide_vline_20x77.png">
+                        <input id="check2" type="checkbox" class="input-checkbox" style="float: right">
+                        <label style="float: right" for="check2"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Quality
+                    </div>
+                    <div id="quality" class="scan-setting-des-div">
+                        
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img class="scan-setting-vline" src="../images/devide_vline_20x77.png">
+                        <input id="check3" type="checkbox" class="input-checkbox" style="float: right">
+                        <label style="float: right" for="check3"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Size
+                    </div>
+                    <div id="size" class="scan-setting-des-div">
+                        
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img class="scan-setting-vline" src="../images/devide_vline_20x77.png">
+                        <input id="check4" type="checkbox" class="input-checkbox" style="float: right">
+                        <label style="float: right" for="check4"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Format
+                    </div>
+                    <div id="value-format" class="scan-setting-des-div">
+                        
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img class="scan-setting-vline" src="../images/devide_vline_20x77.png">
+                        <input id="check5" type="checkbox" class="input-checkbox" style="float: right">
+                        <label style="float: right" for="check5"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Compress-Level
+                    </div>
+                    <div id="compress-level-value" class="scan-setting-des-div" style="width:20px;">
+                        
+                    </div>
+                    <div style="width: 200px;height: 90px;display: flex;flex-direction: row;flex-wrap: nowrap;justify-content: center;align-items: center;margin-left:20px;">
+                        <input id="range-compress-level" type="range" max="100" min="p">
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="check6" type="checkbox" class="input-checkbox" style="float: right;margin-left:15.5px;">
+                        <label style="float: right;margin-left:15.5px;" for="check6"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Brightness
+                    </div>
+                    <div id="brightness-value" class="scan-setting-des-div" style="width:20px;">
+                        
+                    </div>
+                    <div style="width: 200px;height: 90px;display: flex;flex-direction: row;flex-wrap: nowrap;justify-content: center;align-items: center;margin-left:20px;">
+                        <input id="range-brightness" type="range" max="1009" min="-100">
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="check7" type="checkbox" class="input-checkbox" style="float: right;margin-left:15.5px;">
+                        <label style="float: right;margin-left:15.5px;" for="check7"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Contrast
+                    </div>
+                    <div id="contrast-value" class="scan-setting-des-div" style="width:20px;">
+                        
+                    </div>
+                    <div style="width: 200px;height: 90px;display: flex;flex-direction: row;flex-wrap: nowrap;justify-content: center;align-items: center;margin-left:20px;">
+                        <input id="range-contrast" type="range" max="99" min="12">
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="check8" type="checkbox" class="input-checkbox" style="float: right;margin-left:15.5px;">
+                        <label style="float: right;margin-left:15.5px;" for="check8"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Watermark
+                    </div>
+                    <div class="scan-setting-des-div">
+                        Text
+                    </div>
+                    <div id="watermark" class="scan-setting-des-div">
+                        
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="check9" type="checkbox" class="input-checkbox">
+                        <label for="check9" style="margin-left:15.5px;"></label>
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img class="scan-setting-vline" src="../images/devide_vline_20x77.png">
+                        <input id="switch" type="checkbox" class="input-switch">
+                        <label for="switch"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Split PDF/TIFF
+                    </div>
+                    <div id="split" class="scan-setting-des-div">
+                        Disable
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img class="scan-setting-vline" src="../images/devide_vline_20x77.png">
+                        <input id="check10" type="checkbox" class="input-checkbox" style="float: right">
+                        <label style="float: right" for="check10"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Punch Hole Removal
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="check11" type="checkbox" class="input-checkbox" style="float:right;margin-left:15.5px;">
+                        <label style="float:right;margin-left:15.5px;" for="check11"></label>
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="switch2" type="checkbox" class="input-switch">
+                        <label style="margin-left:15.5px;" for="switch2"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Blank Page Removal
+                    </div>
+                    <div id="value-blank-page" class="scan-setting-des-div" style="width:20px;">10</div>
+                    <div class="ul-li-right-div" style="height: 90px;">
+                        <img src="../images/blank_page_removal_1_55x87.png" style="width:35px;height:60px;float:left;margin-left:20px;">
+                        <input id="range-blank-page" type="range" max="15" min="0">
+                        <img src="../images/blank_page_removal_15_55x87.png" style="width:35px;height:60px;float:left;">
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="check12" type="checkbox" class="input-checkbox">
+                        <label for="check12" style="margin-left:15.5px;"></label>
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="switch3" type="checkbox" class="input-switch">
+                        <label for="switch3" style="margin-left:15.5px;"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Fill Edges
+                    </div>
+                    <div class="scan-setting-img-div" style="width:50px;height: 90px;">
+                        <img src="../images/fill_edges_color_55x87.png" style="width:38px;height:60px;">
+                    </div>
+                    <div id="value-fill-edges" class="scan-setting-des-div" style="width:20px;margin-left:50px;">10</div>
+                    <div class="ul-li-right-div" style="height: 90px;">
+                        <img src="../images/fill_edges_2_55x87.png" style="width:35px;height:60px;float:left;margin-left:20px;">
+                        <input id="range-fill-edge" type="range" max="99" min="12">
+                        <img src="../images/fill_edges_20_55x87.png" style="width:35px;height:60px;float:left;">
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="check13" type="checkbox" class="input-checkbox">
+                        <label for="check13" style="margin-left:15.5px;"></label>
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="switch4" type="checkbox" class="input-switch">
+                        <label style="margin-left:15.5px;" for="switch4"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Merge/Split
+                    </div>
+                    <div id="value-merge" class="scan-setting-des-div">
+                        Disable
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img class="scan-setting-vline" src="../images/devide_vline_20x77.png">
+                        <input id="check14" type="checkbox" class="input-checkbox" style="float: right">
+                        <label style="float: right" for="check14"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        XMP Metadata
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="check15" type="checkbox" class="input-checkbox" style="float: right">
+                        <label style="margin-left:15.5px;" for="check15"></label>
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img src="../images/arrow_next.png" style="margin-left:15.5px;width:50px;height:50px;" onclick="xpmMetadata()">
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

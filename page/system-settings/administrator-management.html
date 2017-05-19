@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eScan</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/component.css" />
+    <link rel="stylesheet" href="../../js/jquery-ui-1.12.1/jquery-ui.css" />
+    <script src="../../js/modernizr.custom.js"></script>
+    <script src="../../js/jquery-3.2.0.min.js"></script>
+    <script src="../../js/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/page.js"></script>
+    <script src="../../js/json.js"></script>
+    <script src="../../js/system-settings.js"></script>
+    <script type="text/javascript">
+        $(document).ready(
+            function () {
+                getSelectedAccount();
+                init();
+            });
+
+        function getSelectedAccount() {
+            let id = $.getUrlParam('id');
+            let name = 'Select';
+            switch (id) {
+                case '1':
+                    name += ' ' + 'Microsoft Account';
+                    break;
+                case '2':
+                    name += ' ' + 'SharePoint Account';
+                    break;
+                case '3':
+                    name += ' ' + 'FTP Account';
+                    break;
+                case '4':
+                    name += ' ' + 'Local Machine Account';
+                    break;
+                case '5':
+                    name += ' ' + 'Google Account';
+                    break;
+                case '6':
+                    name += ' ' + 'Dropbox Account';
+                    break;
+                case '7':
+                    name += ' ' + 'Box Account';
+                    break;
+                case '8':
+                    name += ' ' + 'Evernote Account';
+                    break;
+                case '9':
+                    name += ' ' + 'OwnCloud Account';
+                    break;
+            }
+            $("#system-setting").css("display", "inline-block")
+        }
+
+        function init() {
+            var con = new Confuguration();
+            var sys = new SystemSettings();
+            var acc = new AddAccount();
+            var adName = new AdminName();
+            var pwd = new Password();
+            var confirm = new Confirm();
+            var ques = new Question();
+            var ans = new Answer();
+            con.config();
+            sys.sysSettings();
+            acc.addAcc();
+            adName.admName();
+            pwd.pwd();
+            confirm.confirm();
+            ques.question();
+            ans.ans();
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="title">
+        <div class="title-left-div">
+            <img class="title-back-img" src="../../images/arrow_back.png" onclick="javascript:history.go(-1);">
+        </div>
+        <div class="title-center-div">
+            <span id="title">Admininstrator Management</span>
+        </div>
+        <div class="title-right-div">
+            <img src="../../images/add_job.png" class="title-right-img" onclick="addJob()">
+        </div>
+    </div>
+
+    <div class="container-main">
+        <div class="main">
+            <ul id="content" class="content">
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Password Protection
+                    </div>
+                    <div class="scan-setting-des-div">
+                        Configurations
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="config-switch" type="checkbox" class="system-setting-wifi-btn">
+                        <label id="config-label" for="config-switch"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                    </div>
+                    <div class="scan-setting-des-div">
+                        System Settings
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="sys-setting-switch" type="checkbox" class="system-setting-wifi-btn">
+                        <label id="sys-setting-label" for="sys-setting-switch"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                    </div>
+                    <div class="scan-setting-des-div">
+                        Add Account
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="add-acc-switch" type="checkbox" class="system-setting-wifi-btn">
+                        <label id="add-acc-label" for="add-acc-switch"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Admin Name
+                    </div>
+                    <div class="input-box-flex-div" style="height:100%;">
+                        <input id="admin-name" class="input-long" />
+                    </div>
+                    <div class="clear-img-div" style="height:100%;">
+                        <img id="clear-name" class="clear-img" src="../../images/txt_clear.png">
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Password
+                    </div>
+                    <div class="input-box-flex-div" style="height:100%;">
+                        <input id="pwd" class="input-short" />
+                    </div>
+                    <div class="clear-img-div" style="height:100%;">
+                        <img id="clear-pwd" class="clear-img" src="../../images/txt_clear.png">
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Confirm
+                    </div>
+                    <div class="input-box-flex-div" style="height:100%;">
+                        <input id="confirm" class="input-short" />
+                    </div>
+                    <div class="clear-img-div" style="height:100%;">
+                        <img id="clear-confirm" class="clear-img" src="../../images/txt_clear.png">
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name" style="width:100%;text-align:center;">
+                        Use the pass code reset question and answer in case you forget your pass code and need to reset it.
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Question
+                    </div>
+                    <div class="input-box-flex-div" style="height:100%;">
+                        <input id="question" class="input-long"/>
+                    </div>
+                    <div class="clear-img-div" style="height:100%;">
+                        <img id="clear-que" class="clear-img" src="../../images/txt_clear.png">
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Answer
+                    </div>
+                    <div class="input-box-flex-div" style="height:100%;">
+                        <input id="answer" class="input-short" />
+                    </div>
+                    <div class="clear-img-div" style="height:100%;">
+                        <img id="clear-ans" class="clear-img" src="../../images/txt_clear.png">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

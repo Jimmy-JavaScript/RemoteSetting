@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eScan</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/component.css" />
+    <link rel="stylesheet" href="../../js/jquery-ui-1.12.1/jquery-ui.css" />
+    <script src="../../js/modernizr.custom.js"></script>
+    <script src="../../js/jquery-3.2.0.min.js"></script>
+    <script src="../../js/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/page.js"></script>
+    <script src="../../js/json.js"></script>
+    <script src="../../js/local-machine-account.js"></script>
+    <script src="../../js/xmp-metadata.js"></script>
+    <script type="text/javascript">
+        $(document).ready(
+            function () {
+                getSelectedAccount();
+                initJsonData();
+                initClick();
+            });
+
+        function getSelectedAccount() {
+            let id = $.getUrlParam('id');
+            let name = 'Select';
+            switch (id) {
+                case '1':
+                    name += ' ' + 'Microsoft Account';
+                    break;
+                case '2':
+                    name += ' ' + 'SharePoint Account';
+                    break;
+                case '3':
+                    name += ' ' + 'FTP Account';
+                    break;
+                case '4':
+                    name += ' ' + 'Local Machine Account';
+                    break;
+                case '5':
+                    name += ' ' + 'Google Account';
+                    break;
+                case '6':
+                    name += ' ' + 'Dropbox Account';
+                    break;
+                case '7':
+                    name += ' ' + 'Box Account';
+                    break;
+                case '8':
+                    name += ' ' + 'Evernote Account';
+                    break;
+                case '9':
+                    name += ' ' + 'OwnCloud Account';
+                    break;
+            }
+            $("#system-setting").css("display", "inline-block")
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="title">
+        <div class="title-left-div">
+            <img class="title-back-img" src="../../images/arrow_back.png" onclick="javascript:history.go(-1);">
+        </div>
+        <div class="title-center-div">
+            <span id="title">XMP Metadata</span>
+        </div>
+        <div class="title-right-div">
+            <span>Selectable</span>
+        </div>
+    </div>
+
+    <div class="container-main">
+        <div class="main">
+            <ul id="content-one" class="content">
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Title
+                    </div>
+                    <div class="input-box-flex-div" style="height:100%;">
+                        <input id="xmp-title-input" class="watermark-picture-input"/>
+                    </div>
+                    <div class="clear-img-div" style="height:100%;">
+                        <img id="xmp-title-clear" class="clear-img" src="../../images/txt_clear.png">
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="check" type="checkbox" class="input-checkbox">
+                        <label style="float: right" for="check"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Category
+                    </div>
+                    <div class="input-box-flex-div" style="height:100%;">
+                        <input id="xmp-category-input" class="watermark-picture-input"/>
+                    </div>
+                    <div class="clear-img-div" style="height:100%;">
+                        <img id="clear-name" class="clear-img" src="../../images/txt_clear.png">
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="check1" type="checkbox" class="input-checkbox">
+                        <label style="float: right" for="check1"></label>
+                    </div>
+                    </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        SubCategories
+                    </div>
+                    <div class="input-box-flex-div" style="height:100%;">
+                        <input id="xmp-sub-input" class="watermark-picture-input"/>
+                    </div>
+                    <div class="clear-img-div" style="height:100%;">
+                        <img id="clear-name" class="clear-img" src="../../images/txt_clear.png">
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="check2" type="checkbox" class="input-checkbox">
+                        <label style="float: right" for="check2"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Description
+                    </div>
+                    <div class="input-box-flex-div" style="height:100%;">
+                        <input id="xmp-description-input" class="watermark-picture-input"/>
+                    </div>
+                    <div class="clear-img-div" style="height:100%;">
+                        <img id="clear-name" class="clear-img" src="../../images/txt_clear.png">
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="check3" type="checkbox" class="input-checkbox">
+                        <label style="float: right" for="check3"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        User
+                    </div>
+                    <div class="input-box-flex-div" style="height:100%;">
+                        <input id="xmp-user-input" class="watermark-picture-input"/>
+                    </div>
+                    <div class="clear-img-div" style="height:100%;">
+                        <img id="clear-name" class="clear-img" src="../../images/txt_clear.png">
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="check4" type="checkbox" class="input-checkbox">
+                        <label style="float: right" for="check4"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Date
+                    </div>
+                    <div class="input-box-flex-div" style="height:100%;">
+                         <input id="xmp-date-input" class="metadata-date-input"/>
+                    </div>
+                    <div class="clear-img-div" style="height:100%;">
+                        <img id="clear-name" class="clear-img" src="../../images/txt_clear.png">
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="check5" type="checkbox" class="input-checkbox">
+                        <label style="float: right" for="check5"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Location
+                    </div>
+                    <div class="input-box-flex-div" style="height:100%;">
+                        <input id="xmp-location-input" class="watermark-picture-input"/>
+                    </div>
+                    <div class="clear-img-div" style="height:100%;">
+                        <img id="clear-name" class="clear-img" src="../../images/txt_clear.png">
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="check6" type="checkbox" class="input-checkbox">
+                        <label style="float: right" for="check6"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Sub-Location
+                    </div>
+                    <div class="input-box-flex-div" style="height:100%;">
+                        <input id="xmp-sublocation-input" class="watermark-picture-input"/>
+                    </div>
+                    <div class="clear-img-div" style="height:100%;">
+                        <img id="clear-name" class="clear-img" src="../../images/txt_clear.png">
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="check7" type="checkbox" class="input-checkbox">
+                        <label style="float: right" for="check7"></label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="bodyHide">
+    </div>
+</body>
+
+</html>

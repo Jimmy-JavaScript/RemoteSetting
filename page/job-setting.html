@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eScan</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="../css/component.css" />
+    <link rel="stylesheet" href="../js/jquery-ui-1.12.1/jquery-ui.css" />
+    <script src="../js/modernizr.custom.js"></script>
+    <script src="../js/jquery-3.2.0.min.js"></script>
+    <script src="../js/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/page.js"></script>
+    <script src="../js/json.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/job-setting.js"></script>
+    <script type="text/javascript">
+        function initJobSettingPageHtml() {
+            var jsonStr = '{ "accounts" : [' +
+                '{ "id":"usb" , "account":"USB" },' +
+                '{ "id":"share-folder" , "account":"Share Folder(SMB/CIFS)" },' +
+                '{ "id":"ftp-sftp" , "account":"FTP/SFTP/FTPS" },' +
+                '{ "id":"mail-smtp" , "account":"Mail(SMTP)" },' +
+                '{ "id":"pc-mobile" , "account":"Client PC/Mobile" }]}';
+            var jsonObj;
+            jsonObj = JSON.parse(jsonStr);
+
+            var htmlStrs = '';
+            for (i in jsonObj.accounts) {
+                htmlStr =
+                    '<li id="' + jsonObj.accounts[i].id + '" class="li-style-two">' +
+                    '<div class="account-name" style="color:white;margin-left:100px;line-height:90px;" >' + jsonObj.accounts[i].account + '</div>' +
+                    '<div class="job-usb-right-div">' +
+                    '<img id="' + jsonObj.accounts[i].id + '"class="job-setting" src="../images/setting_disable_120x87.png">' +
+                    '<img class="job-setting-vline" src="../images/devide_vline_20x77.png">' +
+                    '<img class="job-setting-toggle-btn" on="0" src="../images/dialog_off_79x49.png" >' +
+                    '</div>' +
+                    '</li>';
+                htmlStrs += htmlStr;
+            }
+            return htmlStrs;
+        }
+        $(document).ready(
+            function () {
+                getSelectedAccount();
+                initClickEvent();
+                var jobSetting = jobSettingFun();
+                jobSetting.setting();
+
+            });
+
+        function getSelectedAccount() {
+            let id = $.getUrlParam(Constants.ACCOUNT_TYPE_ID);
+            let titleName = $.getUrlParam('title');
+            let name = 'Select';
+            switch (parseInt(id)) {
+                case Constants.ACCOUNTS_TYPE.MICROSOFT:
+                    name += ' ' + 'Microsoft Account';
+                    break;
+                case Constants.ACCOUNTS_TYPE.SHAREPOINT:
+                    name += ' ' + 'SharePoint Account';
+                    break;
+                case Constants.ACCOUNTS_TYPE.FTP:
+                    name += ' ' + 'FTP Account';
+                    break;
+                case Constants.ACCOUNTS_TYPE.LOCAL_MACHINE:
+                    name += ' ' + 'Local Machine Account';
+                    break;
+                case Constants.ACCOUNTS_TYPE.GOOGLE:
+                    name += ' ' + 'Google Account';
+                    break;
+                case Constants.ACCOUNTS_TYPE.DROP_BOX:
+                    name += ' ' + 'Dropbox Account';
+                    break;
+                case Constants.ACCOUNTS_TYPE.BOX:
+                    name += ' ' + 'Box Account';
+                    break;
+                case Constants.ACCOUNTS_TYPE.EVERNOTE:
+                    name += ' ' + 'Evernote Account';
+                    break;
+                case Constants.ACCOUNTS_TYPE.OWN_CLOUD:
+                    name += ' ' + 'OwnCloud Account';
+                    break;
+            }
+            var htmlStr = initJobSettingPageHtml();
+            $("#content-two").html(htmlStr);
+            $('#title-name').text(titleName);
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="title">
+        <div class="title-left-div">
+            <img class="title-back-img" src="../images/arrow_back.png" onclick="javascript:history.go(-1);">
+        </div>
+         <div class="title-left-div" style="width:auto;">
+            <span id="title">Job</span>
+        </div>
+        <div class="title-center-div">
+            <span id="title-name">Job</span>
+        </div>
+        <div class="title-right-div">
+        </div>
+    </div>
+
+    <div class="container-main">
+        <div class="main">
+            <ul id="content-one" class="content">
+                <li class="li-style-two" onclick="scanSetting()">
+                    <div  class="account-name" style="color:white;margin-left:20px; line-height:90px;" >
+                        Scan Settings
+                    </div>
+                    <div class="job-setting-right-div">
+                        <img class="job-setting-right-arrow" src="../images/arrow_next.png" >
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name" style="color:white;margin-left:20px;line-height:90px;">
+                        Save to
+                    </div>
+                </li>
+            </ul>
+            <ul id="content-two">
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

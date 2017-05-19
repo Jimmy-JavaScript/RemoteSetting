@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eScan</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/component.css" />
+    <link rel="stylesheet" href="../../js/jquery-ui-1.12.1/jquery-ui.css" />
+    <script src="../../js/modernizr.custom.js"></script>
+    <script src="../../js/jquery-3.2.0.min.js"></script>
+    <script src="../../js/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/page.js"></script>
+    <script src="../../js/json.js"></script>
+    <script src="../../js/file-name.js"></script>
+    <script type="text/javascript">
+        $(document).ready(
+            function () {
+                initJsonData();
+                initClick();
+            });
+    </script>
+</head>
+
+<body>
+
+    <div class="title">
+        <div class="title-left-div">
+            <img class="title-back-img" src="../../images/arrow_back.png" onclick="javascript:history.go(-1);">
+        </div>
+        <div class="title-center-div">
+            <span id="title">File Name</span>
+        </div>
+        <div class="title-right-div">
+        </div>
+    </div>
+
+    <div class="container-main">
+        <div class="main">
+            <ul id="content-one" class="content">
+                <li class="li-style-two">
+                    <div id="file-name" style="width:100%;color:white;text-align:center;line-height:90px;">
+                        Document_YYYYMMDD_HHMMSS_01
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Prefix
+                    </div>
+                    <div class="input-box-flex-div" style="height:100%;">
+                        <input id="prefix" class="file-name-input-short" />
+                    </div>
+                    <div class="clear-img-div" style="height:100%;">
+                        <img id="clear-prefix" src="../../images/txt_clear.png" style="width:50px;height:50px;">
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img class="scan-setting-vline" src="../../images/devide_vline_20x77.png">
+                        <input id="toggle-prefix" type="checkbox" class="file-name-toggle-btn" />
+                        <label id="toggle-prefix-label" for="toggle-prefix">
+                    </div>
+                </li>
+                <li class="li-style-two">
+                        <div class="account-name">
+                            Barcode Value
+                        </div>
+                        <div class="scan-setting-des-div">
+                            Type
+                        </div>
+                        <div id="barcode-type" class="scan-setting-des-div">
+                            CODE39
+                        </div>
+                        <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                            <img class="scan-setting-vline" src="../../images/devide_vline_20x77.png"> 
+                            <input id="toggle-barcode-type" type="checkbox" class="file-name-toggle-btn"/>
+                            <label id="toggle-type-label" for="toggle-barcode-type"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                    </div>
+                    <div class="scan-setting-des-div">
+                        Position
+                    </div>
+                    <div id="barcode-pos" class="scan-setting-des-div">
+                        Upper-Right
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img class="scan-setting-vline" src="../../images/devide_vline_20x77.png">
+                        <div style="width:50px;"></div>
+                    </div>
+
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                    </div>
+                    <div class="scan-setting-des-div">
+                        Filter
+                    </div>
+                    <div id="barcode-filter" class="scan-setting-des-div">
+                        None
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img class="scan-setting-vline" src="../../images/devide_vline_20x77.png">
+                        <div style="width:50px;"></div>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Date
+                    </div>
+                    <div id="date" class="scan-setting-des-div">
+                        YYYYMMDD
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img class="scan-setting-vline" src="../../images/devide_vline_20x77.png">
+                        <input id="toggle-date" type="checkbox" class="file-name-toggle-btn" />
+                        <label id="toggle-date-label" for="toggle-date"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Time
+                    </div>
+                    <div id="time" class="scan-setting-des-div">
+                        HHMMSS
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img class="scan-setting-vline" src="../../images/devide_vline_20x77.png">
+                        <input id="toggle-time" type="checkbox" class="file-name-toggle-btn" />
+                        <label id="toggle-time-label" for="toggle-time"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Serial Number
+                    </div>
+                    <div id="serial-number" class="scan-setting-des-div">
+                        01-99
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img class="scan-setting-vline" src="../../images/devide_vline_20x77.png">
+                        <input id="toggle-serial-num" type="checkbox" class="file-name-toggle-btn" />
+                        <label id="toggle-serial-label" for="toggle-serial-num"></label>
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                    </div>
+                    <div class="scan-setting-des-div">
+                        Continuous
+                    </div>
+                    <div style="width: 200px;height: 90px;display: flex;flex-direction: row;flex-wrap: nowrap;justify-content: center;align-items: center;margin-left:10%;">
+                        <input id="toggle-continuous" type="checkbox" class="file-name-toggle-btn">
+                        <label id="toggle-continuous-label" for="toggle-continuous">
+                    </div>
+                        <div class="clear-img-div" style="height:100%;">
+                            0
+                        </div>
+                        <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                            <img id="clear-name" class="clear-img" src="../../images/txt_clear.png">
+                        </div>
+                    </li>
+                </ul>
+        </div>
+    </div>
+</body>
+
+</html>

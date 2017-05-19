@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eScan</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/component.css" />
+    <link rel="stylesheet" href="../../js/jquery-ui-1.12.1/jquery-ui.css" />
+    <script src="../../js/modernizr.custom.js"></script>
+    <script src="../../js/jquery-3.2.0.min.js"></script>
+    <script src="../../js/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/page.js"></script>
+    <script src="../../js/json.js"></script>
+    <script src="../../js/system-settings.js"></script>
+    <script>
+        $(document).ready(
+            function () {
+                init();
+            }
+        );
+
+        function init() {
+            var dev = new DeviceName();
+            dev.devName();
+            $('#maintenance-img').click(
+                function () {
+                    var page = new PageSwitch();
+                    page.maintenance();
+                });
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="title">
+        <div class="title-left-div">
+            <img class="title-back-img" src="../../images/arrow_back.png" onclick="javascript:history.go(-1);">
+        </div>
+        <div class="title-center-div">
+            <span id="title">Device Information</span>
+        </div>
+        <div class="title-right-div">
+        </div>
+    </div>
+
+    <div class="container-main">
+        <div class="main">
+            <ul id="content" class="content">
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Scan count
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img id="maintenance-img" src="../../images/arrow_next.png" class="system-setting-next">
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        Maintenance
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        Scanned Pages
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        UUID
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        SUID
+                    </div>
+                </li>
+                <li class="li-style-two">
+                    <div class="account-name">
+                        DeviceName
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <img id="clear-dev-name" class="clear-img" src="../../images/txt_clear.png">
+                    </div>
+                    <div class="ul-li-right-div" style="float:right;width: 200px;height: 90px;">
+                        <input id="dev-name" class="dev-info-dev-name" />
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
